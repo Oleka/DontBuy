@@ -22,6 +22,58 @@ class AddViewController: UIViewController,UITextFieldDelegate,UIImagePickerContr
     @IBOutlet weak var reasonField:  UITextField!
     @IBOutlet weak var nameField:    UITextField!
     
+    var rating : Int16 = 0
+    var rateArray:[Bool] = [Bool](repeating: false, count:5)
+
+    
+    //Ratings issue
+    
+    
+    
+    @IBAction func changeRateState(_ sender: Any) {
+        
+        let rateIndex: Int = (sender as! UIButton).tag
+        
+        self.rateArray[rateIndex] = !self.rateArray[rateIndex]
+        rating = changeRating(state: self.rateArray[rateIndex])
+        
+        if (self.rateArray[rateIndex]){
+            (sender as! UIButton).isSelected=true
+        }
+        else{
+            (sender as! UIButton).isSelected=false
+        }
+        
+        //Animation
+        
+        UIView.animate(withDuration: 0.4, animations:{
+            
+           (sender as! UIButton).transform = CGAffineTransform(scaleX: 1.3, y: 1.3) },
+                       completion:{
+                        (finish: Bool) in UIView.animate(withDuration: 0.4, animations:{
+                            (sender as! UIButton).transform = CGAffineTransform.identity
+                        
+                        })
+        })
+        
+
+    }
+    
+    
+    func changeRating(state: Bool) -> Int16 {
+        
+        if state {
+            rating += 1
+        }
+        else{
+            rating -= 1
+        }
+        
+        return rating
+    }
+
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -91,7 +143,7 @@ class AddViewController: UIViewController,UITextFieldDelegate,UIImagePickerContr
     }
     
     func fn_clearPhoto(){
-        self.imageForAdd?.image  = nil
+        self.imageForAdd?.image  = UIImage(named: "empty_photo")
     }
     
     
@@ -152,6 +204,8 @@ class AddViewController: UIViewController,UITextFieldDelegate,UIImagePickerContr
             let product = Products(context: _context)
             product.dt = NSDate()
             
+            product.rating = rating
+            
             if reasonField.text != nil {
                 product.reason = reasonField.text
             }
@@ -159,7 +213,6 @@ class AddViewController: UIViewController,UITextFieldDelegate,UIImagePickerContr
             if nameField.text != nil {
                 product.name = nameField.text
             }
-            product.rating = 0
             
             let uuid = NSUUID().uuidString
             product.id = uuid

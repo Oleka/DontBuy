@@ -53,6 +53,7 @@ class MainViewController: UIViewController,UITableViewDataSource,UITableViewDele
         // Do any additional setup after loading the view, typically from a nib.
         tableView.dataSource = self
         tableView.delegate   = self
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -80,14 +81,17 @@ class MainViewController: UIViewController,UITableViewDataSource,UITableViewDele
             let indexPath = tableView.indexPathForSelectedRow
             let pr = prd[(indexPath?.row)!]
             viewController.product = [pr]
-            //NSString *newID = [[NSUUID UUID] UUIDString];
             
         }
     }
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //performSegue(withIdentifier: "ProductsRow", sender:self )
+        
+    }
+    
+    func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
+        
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -95,7 +99,6 @@ class MainViewController: UIViewController,UITableViewDataSource,UITableViewDele
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //let cell = UITableViewCell()
         
         let cellId: String = "MyCell"
         let cell: CellController = tableView.dequeueReusableCell(withIdentifier: cellId)! as! CellController
@@ -110,6 +113,7 @@ class MainViewController: UIViewController,UITableViewDataSource,UITableViewDele
         cell.productImage?.layer.masksToBounds = false
         cell.productImage?.layer.cornerRadius = (cell.productImage?.frame.height)!/2
         cell.productImage?.clipsToBounds = true
+        //cell.selectionStyle = .none
         
         return cell
     }
