@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11758" systemVersion="15G1211" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11542" systemVersion="15G1211" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Products" representedClassName="Products" syncable="YES" codeGenerationType="class">
+        <attribute name="barcode" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="dt" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="image" optional="YES" attributeType="Binary" syncable="YES"/>
@@ -9,6 +10,6 @@
         <attribute name="reason" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Products" positionX="-63" positionY="-18" width="128" height="135"/>
+        <element name="Products" positionX="-63" positionY="-18" width="128" height="150"/>
     </elements>
 </model>
