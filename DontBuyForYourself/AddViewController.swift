@@ -42,6 +42,8 @@ class AddViewController: UIViewController,UITextFieldDelegate,UIImagePickerContr
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "ScanBarcode")
         {
+            self.nameField.resignFirstResponder()
+            self.reasonField.resignFirstResponder()
             
             let viewController : ScanViewController = segue.destination as! ScanViewController
             viewController.barcodeDelegateForDataReturn=self
@@ -117,6 +119,8 @@ class AddViewController: UIViewController,UITextFieldDelegate,UIImagePickerContr
         textField.resignFirstResponder()
         return true;
     }
+    
+    
     
     //Photo controller
     
