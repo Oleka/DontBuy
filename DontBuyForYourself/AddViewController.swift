@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class AddViewController: UIViewController,UITextFieldDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
+class AddViewController: UIViewController,UITextFieldDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,selectBarcodeDelegate {
     
     @IBOutlet weak var rate1: UIButton!
     @IBOutlet weak var rate2: UIButton!
@@ -18,18 +18,37 @@ class AddViewController: UIViewController,UITextFieldDelegate,UIImagePickerContr
     @IBOutlet weak var rate5: UIButton!
     
     @IBOutlet weak var cameraButton: UIButton!
+    @IBOutlet weak var scanBarcodeButton: UIButton!
     @IBOutlet weak var imageForAdd:  UIImageView!
     @IBOutlet weak var reasonField:  UITextField!
     @IBOutlet weak var nameField:    UITextField!
+    @IBOutlet weak var barcodeLabel: UILabel!
     
     var rating : Int16 = 0
     var rateArray:[Bool] = [Bool](repeating: false, count:5)
+    var barcodeValue: String = ""
 
+    //Barcode from ScanViewController
+    func sendDataBackToHomePageViewController(barcodeToRefresh: String?){
+        self.barcodeValue = barcodeToRefresh!
+        DispatchQueue.main.async(execute: { () -> Void in
+            self.barcodeLabel.text=self.barcodeValue
+            self.scanBarcodeButton.isHidden=true
+            self.barcodeLabel.isHidden=false
+        })
+    }
     
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "ScanBarcode")
+        {
+            
+            let viewController : ScanViewController = segue.destination as! ScanViewController
+            viewController.barcodeDelegateForDataReturn=self
+            
+        }
+    }
     //Ratings issue
-    
-    
-    
     @IBAction func changeRateState(_ sender: Any) {
         
         let rateIndex: Int = (sender as! UIButton).tag
@@ -77,10 +96,11 @@ class AddViewController: UIViewController,UITextFieldDelegate,UIImagePickerContr
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
         nameField.delegate=self
         reasonField.delegate=self
         imageForAdd.image = UIImage(named: "empty_photo")
+        self.scanBarcodeButton.isHidden=false
+        self.barcodeLabel.isHidden=true
     }
     
     override func didReceiveMemoryWarning() {
@@ -213,6 +233,10 @@ class AddViewController: UIViewController,UITextFieldDelegate,UIImagePickerContr
             if nameField.text != nil {
                 product.name = nameField.text
             }
+            
+            
+            product.barcode = barcodeValue
+            
             
             let uuid = NSUUID().uuidString
             product.id = uuid

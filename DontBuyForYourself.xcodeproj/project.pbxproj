@@ -17,6 +17,7 @@
 		5E1D93DB1DFACFCB009268F7 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1D93DA1DFACFCB009268F7 /* AddViewController.swift */; };
 		5E657F901DFC12F0000CE404 /* CellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E657F8F1DFC12F0000CE404 /* CellController.swift */; };
 		5E657F921DFC3718000CE404 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E657F911DFC3718000CE404 /* DetailViewController.swift */; };
+		5EC5C16F1E03E90F00BCBB7B /* SearchByScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC5C16E1E03E90F00BCBB7B /* SearchByScanViewController.swift */; };
 		5ED9D4551E018D09006BEE55 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED9D4541E018D09006BEE55 /* ScanViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,7 @@
 		5E1D93DA1DFACFCB009268F7 /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		5E657F8F1DFC12F0000CE404 /* CellController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellController.swift; sourceTree = "<group>"; };
 		5E657F911DFC3718000CE404 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		5EC5C16E1E03E90F00BCBB7B /* SearchByScanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchByScanViewController.swift; sourceTree = "<group>"; };
 		5ED9D4541E018D09006BEE55 /* ScanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
 		626E206333212EF4B507FEAC /* Pods-DontBuyForYourself.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DontBuyForYourself.release.xcconfig"; path = "Pods/Target Support Files/Pods-DontBuyForYourself/Pods-DontBuyForYourself.release.xcconfig"; sourceTree = "<group>"; };
 		857705CC08A6EBE733B3FF0C /* Pods-DontBuyForYourself.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DontBuyForYourself.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DontBuyForYourself/Pods-DontBuyForYourself.debug.xcconfig"; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				5E657F8F1DFC12F0000CE404 /* CellController.swift */,
 				5E657F911DFC3718000CE404 /* DetailViewController.swift */,
 				5ED9D4541E018D09006BEE55 /* ScanViewController.swift */,
+				5EC5C16E1E03E90F00BCBB7B /* SearchByScanViewController.swift */,
 				5E1D93C91DFAA3F2009268F7 /* Main.storyboard */,
 				5E1D93CF1DFAA3F2009268F7 /* Assets.xcassets */,
 				5E1D93D11DFAA3F2009268F7 /* LaunchScreen.storyboard */,
@@ -140,7 +143,7 @@
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = VWYKBS3RP3;
 						LastSwiftMigration = 0810;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -228,6 +231,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EC5C16F1E03E90F00BCBB7B /* SearchByScanViewController.swift in Sources */,
 				5E1D93C81DFAA3F2009268F7 /* MainViewController.swift in Sources */,
 				5ED9D4551E018D09006BEE55 /* ScanViewController.swift in Sources */,
 				5E1D93C61DFAA3F2009268F7 /* AppDelegate.swift in Sources */,
@@ -356,14 +360,14 @@
 			baseConfigurationReference = 857705CC08A6EBE733B3FF0C /* Pods-DontBuyForYourself.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				DEVELOPMENT_TEAM = VWYKBS3RP3;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = DontBuyForYourself/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ru.Olistudio.DontBuyForYourself;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6d9b81fe-1393-42ed-86fb-84c4e20c70f1";
-				PROVISIONING_PROFILE_SPECIFIER = "DontBuyForYourself Distribution";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -374,14 +378,14 @@
 			baseConfigurationReference = 626E206333212EF4B507FEAC /* Pods-DontBuyForYourself.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				DEVELOPMENT_TEAM = VWYKBS3RP3;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = DontBuyForYourself/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ru.Olistudio.DontBuyForYourself;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6d9b81fe-1393-42ed-86fb-84c4e20c70f1";
-				PROVISIONING_PROFILE_SPECIFIER = "DontBuyForYourself Distribution";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

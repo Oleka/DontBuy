@@ -21,6 +21,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var imageForAdd:  UIImageView!
     @IBOutlet weak var reasonField:  UILabel!
     @IBOutlet weak var nameField:    UILabel!
+    @IBOutlet weak var barcodeNotFound: UILabel!
     
     var product : [Products] = []
     var rating : Int16 = 0
@@ -57,12 +58,32 @@ class DetailViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        rating = product[0].rating
-        reasonField.text = product[0].reason!
-        nameField.text   = product[0].name
-        imageForAdd.image = UIImage(data: product[0].image as! Data)!
-        cameraButton.isHidden=true
-        setRateButtons()
+        
+        if product.count==0 {
+            
+            barcodeNotFound.isHidden = false
+            barcodeNotFound.text = "Barcode Not found!"
+            reasonField.isHidden = true
+            nameField.isHidden   = true
+            imageForAdd.isHidden = true
+            cameraButton.isHidden = true
+            rate1.isHidden = true
+            rate2.isHidden = true
+            rate3.isHidden = true
+            rate4.isHidden = true
+            rate5.isHidden = true
+            
+        }
+        else{
+            
+            barcodeNotFound.isHidden=true
+            rating = product[0].rating
+            reasonField.text = product[0].reason!
+            nameField.text   = product[0].name
+            imageForAdd.image = UIImage(data: product[0].image as! Data)!
+            cameraButton.isHidden=true
+            setRateButtons()
+        }
     }
     
     override func didReceiveMemoryWarning() {
